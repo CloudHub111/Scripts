@@ -1,0 +1,459 @@
+if game.CoreGui:FindFirstChild"6ah-bay-1888-6671b" then game.CoreGui["6ah-bay-1888-6671b"]:Destroy() end
+
+local SG = Instance.new("ScreenGui", game.CoreGui)
+SG.ScreenInsets = Enum.ScreenInsets.None
+SG.Name = "6ah-bay-1888-6671b"
+
+local function CC(v1, v2)
+local Untitled = Instance.new("UICorner")
+Untitled.CornerRadius = UDim.new(0, v1)
+Untitled.Parent = v2
+end
+
+local SG1 = Instance.new("Frame")
+SG1.Size = UDim2.new(.35, 0, 0.5, 0)
+SG1.Position = UDim2.new(.5, 0, .5, 0)
+SG1.AnchorPoint = Vector2.new(.5,.5)
+SG1.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
+SG1.Active = true
+SG1.Draggable = true
+SG1.Parent = SG
+
+local SG11 = Instance.new("Frame")
+SG11.Size = UDim2.new(.25, 0, 1, 0)
+SG11.Position = UDim2.new(-.05, 0, 0, 0)
+SG11.BackgroundColor3 = Color3.fromRGB(130, 130, 130)
+SG11.Parent = SG1
+
+local SG11RVG = Instance.new("ScrollingFrame")
+SG11RVG.Size = UDim2.new(1, 0, 1, 0)
+SG11RVG.BackgroundTransparency = 1
+SG11RVG.ScrollBarThickness = 4
+SG11RVG.CanvasSize = UDim2.new(0, 0, 0, 0)
+SG11RVG.AutomaticCanvasSize = Enum.AutomaticSize.Y
+SG11RVG.Parent = SG11
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(0.8, 0, 0.15, 0)
+Title.Position = UDim2.new(0.2, 0, -.0025, 0)
+Title.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+Title.TextSize = 23
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.Text = "Script Save Modified"
+Title.Parent = SG1
+
+local RVG = Instance.new("ScrollingFrame")
+RVG.Size = UDim2.new(.8, 0, .5, 0)
+RVG.Position = UDim2.new(.2, 0, .185, 0)
+RVG.BorderSizePixel = 0
+RVG.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+RVG.ScrollBarThickness = 5
+RVG.CanvasSize = UDim2.new(0, 0, 0, 0)
+RVG.AutomaticCanvasSize = Enum.AutomaticSize.XY
+RVG.Parent = SG1
+
+local UIListLayout = Instance.new("UIListLayout")
+UIListLayout.Parent = RVG
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local ScriptBox = Instance.new("TextBox")
+ScriptBox.Size = UDim2.new(1, 0, 1, 0)
+ScriptBox.Position = UDim2.new(.2, 0, .185, 0)
+ScriptBox.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+ScriptBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+ScriptBox.BorderSizePixel = 0
+ScriptBox.TextXAlignment = Enum.TextXAlignment.Left
+ScriptBox.TextYAlignment = Enum.TextYAlignment.Top
+ScriptBox.MultiLine = true
+ScriptBox.Text = ""
+ScriptBox.TextSize = 10
+ScriptBox.AutomaticSize = Enum.AutomaticSize.XY
+ScriptBox.ClearTextOnFocus = false
+ScriptBox.PlaceholderText = "Error 34: file not found"
+ScriptBox.Parent = RVG
+
+local Execute = Instance.new("TextButton")
+Execute.Size = UDim2.new(.35, 0, .135, 0)
+Execute.Position = UDim2.new(.2, 0, .7, 0)
+Execute.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Execute.Text = "Execute"
+Execute.TextSize = 15
+Execute.Parent = SG1
+
+local Delete = Instance.new("TextButton")
+Delete.Size = UDim2.new(.35, 0, .135, 0)
+Delete.Position = UDim2.new(.65, 0, .7, 0)
+Delete.BackgroundColor3 = Color3.fromRGB(110, 110, 110)
+Delete.Text = "Delete"
+Delete.TextSize = 15
+Delete.Parent = SG1
+
+local Edit = Instance.new("TextButton")
+Edit.Size = UDim2.new(.35, 0, .135, 0)
+Edit.Position = UDim2.new(.2, 0, .865, 0)
+Edit.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+Edit.Text = "Edit"
+Edit.TextSize = 15
+Edit.Parent = SG1
+
+local Rename = Instance.new("TextButton")
+Rename.Size = UDim2.new(.35, 0, .135, 0)
+Rename.Position = UDim2.new(.65, 0, .865, 0)
+Rename.BackgroundColor3 = Color3.fromRGB(130, 130, 130)
+Rename.Text = "Rename"
+Rename.TextSize = 15
+Rename.Parent = SG1
+
+local RenameBox = Instance.new("TextBox")
+RenameBox.Size = UDim2.new(1, 0, .15, 0)
+RenameBox.Position = UDim2.new(.5, 0, .55, 0)
+RenameBox.AnchorPoint = Vector2.new(.5,.5)
+RenameBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+RenameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+RenameBox.Text = ""
+RenameBox.ClearTextOnFocus = true
+RenameBox.Visible = false
+RenameBox.Parent = SG
+
+local Tabs = Instance.new("TextLabel", SG11)
+Tabs.Size = UDim2.new(.025, 0, .05, 0)
+Tabs.Position = UDim2.new(.35, 0, .025, 0)
+Tabs.TextColor3 = Color3.new(1, 1, 1)
+Tabs.BackgroundTransparency = 1
+Tabs.TextSize = 18
+Tabs.Text = "Tabs"
+
+local AddTab = Instance.new("TextButton", SG11)
+AddTab.Size = UDim2.new(.25, 0, .1, 0)
+AddTab.Position = UDim2.new(.75, 0, -.0025, 0)
+AddTab.TextScaled = true
+AddTab.Text = "+"
+
+local SS1 = Instance.new("Frame")
+SS1.Size = UDim2.new(.2, 0, .3, 0)
+SS1.Position = UDim2.new(.5, 0, .5, 0)
+SS1.AnchorPoint = Vector2.new(.5,.5)
+SS1.Active = true
+SS1.Draggable = true
+SS1.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+SS1.BorderSizePixel = 0
+SS1.Visible = false
+SS1.Parent = SG
+
+local TitleS = Instance.new("TextLabel")
+TitleS.Size = UDim2.new(1, 0, 0.2, 0)
+TitleS.Position = UDim2.new(0, 0, 0, 0)
+TitleS.BackgroundTransparency = 1
+TitleS.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleS.Text = "Upload Script"
+TitleS.TextScaled = true
+TitleS.Parent = SS1
+
+local FileNameRVG = Instance.new("ScrollingFrame")
+FileNameRVG.Size = UDim2.new(0.9, 0, 0.2, 0)
+FileNameRVG.Position = UDim2.new(0.05, 0, 0.25, 0)
+FileNameRVG.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+FileNameRVG.ScrollBarThickness = 4
+FileNameRVG.CanvasSize = UDim2.new(0, 0, 0, 0)
+FileNameRVG.AutomaticCanvasSize = Enum.AutomaticSize.XY
+FileNameRVG.Parent = SS1
+
+local FileName = Instance.new("TextBox")
+FileName.Size = UDim2.new(1, 0, 1, 0)
+FileName.BackgroundTransparency = 1
+FileName.TextColor3 = Color3.fromRGB(255, 255, 255)
+FileName.Text = ""
+FileName.PlaceholderText = "Enter File Name Here"
+FileName.ClearTextOnFocus = false
+FileName.TextXAlignment = Enum.TextXAlignment.Left
+FileName.TextYAlignment = Enum.TextYAlignment.Top
+FileName.AutomaticSize = Enum.AutomaticSize.XY
+FileName.MultiLine = false
+FileName.Parent = FileNameRVG
+
+local FileScriptRVG = Instance.new("ScrollingFrame")
+FileScriptRVG.Size = UDim2.new(0.9, 0, 0.3, 0)
+FileScriptRVG.Position = UDim2.new(0.05, 0, 0.5, 0)
+FileScriptRVG.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+FileScriptRVG.ScrollBarThickness = 4
+FileScriptRVG.CanvasSize = UDim2.new(0, 0, 0, 0)
+FileScriptRVG.AutomaticCanvasSize = Enum.AutomaticSize.XY
+FileScriptRVG.Parent = SS1
+
+local FileScript = Instance.new("TextBox")
+FileScript.Size = UDim2.new(1, 0, 1, 0)
+FileScript.BackgroundTransparency = 1
+FileScript.TextColor3 = Color3.fromRGB(255, 255, 255)
+FileScript.Text = ""
+FileScript.PlaceholderText = "Enter Script Here"
+FileScript.TextXAlignment = Enum.TextXAlignment.Left
+FileScript.TextYAlignment = Enum.TextYAlignment.Top
+FileScript.AutomaticSize = Enum.AutomaticSize.XY
+FileScript.MultiLine = true
+FileScript.ClearTextOnFocus = false
+FileScript.Parent = FileScriptRVG
+
+local Cancel = Instance.new("TextButton")
+Cancel.Size = UDim2.new(.49, 0, .15, 0)
+Cancel.Position = UDim2.new(0, 0, 0.85, 0)
+Cancel.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+Cancel.Text = "Cancel"
+Cancel.Parent = SS1
+
+local Upload = Instance.new("TextButton")
+Upload.Size = UDim2.new(.49, 0, .15, 0)
+Upload.Position = UDim2.new(.51, 0, 0.85, 0)
+Upload.BackgroundColor3 = Color3.fromRGB(150, 150, 140)
+Upload.Text = "Upload"
+Upload.Parent = SS1
+
+Execute.MouseButton1Up:Connect(function()
+loadstring(ScriptBox.Text)()
+end)
+
+ScriptBox.Focused:Connect(function()
+    ScriptBox.TextSize = 13
+end)
+
+ScriptBox.FocusLost:Connect(function()
+    ScriptBox.TextSize = 10
+end)
+
+FileName.Focused:Connect(function()
+    FileName.TextSize = 13
+end)
+
+FileName.FocusLost:Connect(function()
+    FileName.TextSize = 10
+end)
+
+FileScript.Focused:Connect(function()
+    FileScript.TextSize = 13
+end)
+
+FileScript.FocusLost:Connect(function()
+    FileScript.TextSize = 10
+end)
+
+AddTab.MouseButton1Up:Connect(function()
+SS1.Visible = not SS1.Visible
+end)
+
+Cancel.MouseButton1Up:Connect(function()
+SS1.Visible = false
+end)
+
+Rename.MouseButton1Up:Connect(function() end)
+
+Delete.MouseButton1Up:Connect(function() end)
+
+Edit.MouseButton1Up:Connect(function() end)
+
+local FirstTabAdded = false
+
+if not isfolder("SAVEDSCRIPT01") then makefolder("SAVEDSCRIPT01") end
+
+local ReplaceMap = {
+    [":"] = "funcExploit'Colon'",
+    ["*"] = "funcExploit'Asterisk'",
+    ["?"] = "funcExploit'Question'",
+    ['"'] = "funcExploit'Quote'",
+    ["<"] = "funcExploit'LessThan'",
+    [">"] = "funcExploit'GreaterThan'",
+    ["|"] = "funcExploit'Pipe'",
+    ["/"] = "funcExploit'Slash'",
+    ["\\"] = "funcExploit'Backslash'"
+}
+
+local ReverseMap = {}
+for Char, Replacement in pairs(ReplaceMap) do
+    ReverseMap[Replacement] = Char
+end
+
+local function SanitizeName(Name)
+    return (Name:gsub(".", function(C)
+        return ReplaceMap[C] or C
+    end))
+end
+
+local function RestoreName(Name)
+    for Replacement, Char in pairs(ReverseMap) do
+        Name = Name:gsub(Replacement, Char)
+    end
+    return Name
+end
+
+local function GetSortedFiles()
+    local Files = listfiles("SAVEDSCRIPT01")
+    table.sort(Files, function(A, B)
+        return tonumber(A:match("(%d%d).txt$") or 0) < tonumber(B:match("(%d%d).txt$") or 0)
+    end)
+    return Files
+end
+
+ScriptBox.Text = readfile(GetSortedFiles()[1])
+
+local EditConnection, RenameConnection, DeleteConnection
+
+for _, File in ipairs(GetSortedFiles()) do
+    local FileName = File:match("SAVEDSCRIPT01/(.+)")
+    if FileName then
+        local Script = readfile(File)
+
+        if not FirstTabAdded then
+            SG11RVG.Size = SG11RVG.Size - UDim2.new(0, 0, 0.1, 0)
+            SG11RVG.Position = SG11RVG.Position + UDim2.new(0, 0, 0.1, 0)
+            FirstTabAdded = true
+        end
+
+        local NewTab = Instance.new("TextButton")
+        NewTab.Size = UDim2.new(0.95, 0, 0.1, 0)
+        NewTab.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+        NewTab.Text = RestoreName(FileName:gsub("%.txt$", ""))
+        NewTab.TextScaled = true
+        NewTab.Parent = SG11RVG
+
+        local TabCount = #SG11RVG:GetChildren() - 1
+        NewTab.Position = UDim2.new(0.025, 0, TabCount * (0.1 + 0.01), 0)
+        SG11RVG.CanvasSize = UDim2.new(0, 0, TabCount * (0.1 + 0.01), 0)
+
+        NewTab.MouseButton1Up:Connect(function()
+            ScriptBox.Text = Script
+
+            if EditConnection then EditConnection:Disconnect() end
+            if RenameConnection then RenameConnection:Disconnect() end
+            if DeleteConnection then DeleteConnection:Disconnect() end
+
+            EditConnection = Edit.MouseButton1Up:Connect(function()
+                ScriptBox:CaptureFocus()
+                ScriptBox.FocusLost:Wait()
+                delfile("SAVEDSCRIPT01/"..FileName)
+                writefile("SAVEDSCRIPT01/"..FileName, tostring(ScriptBox.Text))
+                Script = tostring(ScriptBox.Text)
+            end)
+
+            RenameConnection = Rename.MouseButton1Up:Connect(function()
+                RenameBox:CaptureFocus()
+                RenameBox.FocusLost:Wait()
+                if RenameBox.Text ~= "" then
+                    local Index = FileName:match("(%d+)%.[^%.]+$") or "01"
+                    local NewSanitized = SanitizeName(RenameBox.Text)
+                    local NewFileName = NewSanitized..Index..".txt"
+                    delfile("SAVEDSCRIPT01/"..FileName)
+                    writefile("SAVEDSCRIPT01/"..NewFileName, Script)
+                    NewTab.Text = RestoreName(RenameBox.Text..Index)
+                    FileName = NewFileName
+                end
+            end)
+
+            DeleteConnection = Delete.MouseButton1Up:Connect(function()
+                NewTab:Destroy()
+                delfile("SAVEDSCRIPT01/"..FileName)
+                for I, V in ipairs(SG11RVG:GetChildren()) do
+                    if V:IsA("TextButton") then
+                        V.Position = UDim2.new(0.025, 0, (I - 1) * (0.1 + 0.01), 0)
+                    end
+                end
+                SG11RVG.CanvasSize = UDim2.new(0, 0, (#SG11RVG:GetChildren() - 1) * (0.1 + 0.01), 0)
+            end)
+        end)
+
+        CC(15, NewTab)
+    end
+end
+
+Upload.MouseButton1Up:Connect(function()
+    SS1.Visible = false
+    local Script = tostring(FileScript.Text)
+
+    if not FirstTabAdded then
+        SG11RVG.Size = SG11RVG.Size - UDim2.new(0, 0, 0.1, 0)
+        SG11RVG.Position = SG11RVG.Position + UDim2.new(0, 0, 0.1, 0)
+        FirstTabAdded = true
+    end
+
+    local Files = GetSortedFiles()
+    local Index = #Files + 1
+    if Index > 99 then return end
+    Index = string.format("%02d", Index)
+
+    local FileNameText = FileName.Text ~= "" and FileName.Text or "Untitled"
+    local Sanitized = SanitizeName(FileNameText)
+    local FullFileName = Sanitized..Index..".txt"
+
+    local NewTab = Instance.new("TextButton")
+    NewTab.Size = UDim2.new(0.95, 0, 0.1, 0)
+    NewTab.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+    NewTab.Text = RestoreName(FileNameText..Index)
+    NewTab.TextScaled = true
+    NewTab.Parent = SG11RVG
+
+    local TabCount = #SG11RVG:GetChildren() - 1
+    NewTab.Position = UDim2.new(0.025, 0, TabCount * (0.1 + 0.01), 0)
+    SG11RVG.CanvasSize = UDim2.new(0, 0, TabCount * (0.1 + 0.01), 0)
+
+    writefile("SAVEDSCRIPT01/"..FullFileName, Script)
+
+    NewTab.MouseButton1Up:Connect(function()
+        ScriptBox.Text = Script
+
+        if EditConnection then EditConnection:Disconnect() end
+        if RenameConnection then RenameConnection:Disconnect() end
+        if DeleteConnection then DeleteConnection:Disconnect() end
+
+        EditConnection = Edit.MouseButton1Up:Connect(function()
+            ScriptBox:CaptureFocus()
+            ScriptBox.FocusLost:Wait()
+            delfile("SAVEDSCRIPT01/"..FullFileName)
+            writefile("SAVEDSCRIPT01/"..FullFileName, tostring(ScriptBox.Text))
+            Script = tostring(ScriptBox.Text)
+        end)
+
+        RenameConnection = Rename.MouseButton1Up:Connect(function()
+            RenameBox:CaptureFocus()
+            RenameBox.FocusLost:Wait()
+            if RenameBox.Text ~= "" then
+                local NewSanitized = SanitizeName(RenameBox.Text)
+                local NewFileName = NewSanitized..Index..".txt"
+                delfile("SAVEDSCRIPT01/"..FullFileName)
+                writefile("SAVEDSCRIPT01/"..NewFileName, Script)
+                NewTab.Text = RestoreName(RenameBox.Text..Index)
+                FullFileName = NewFileName
+            end
+        end)
+
+        DeleteConnection = Delete.MouseButton1Up:Connect(function()
+            NewTab:Destroy()
+            delfile("SAVEDSCRIPT01/"..FullFileName)
+            for I, V in ipairs(SG11RVG:GetChildren()) do
+                if V:IsA("TextButton") then
+                    V.Position = UDim2.new(0.025, 0, (I - 1) * (0.1 + 0.01), 0)
+                end
+            end
+            SG11RVG.CanvasSize = UDim2.new(0, 0, (#SG11RVG:GetChildren() - 1) * (0.1 + 0.01), 0)
+        end)
+    end)
+
+    CC(15, NewTab)
+
+    FileName.Text = ""
+    FileScript.Text = ""
+end)
+
+CC(15, SG1)
+CC(15, SG11)
+CC(15, Title)
+CC(15, Execute)
+CC(15, Delete)
+CC(15, Edit)
+CC(15, Rename)
+CC(15, Tabs)
+CC(100, AddTab)
+CC(15, SS1)
+CC(15, TitleS)
+CC(3, FileNameRVG)
+CC(3, FileScriptRVG)
+CC(3, FileName)
+CC(3, FileScript)
+CC(15, Cancel)
+CC(15, Upload)

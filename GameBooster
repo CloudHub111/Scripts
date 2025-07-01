@@ -1,0 +1,98 @@
+if not game:IsLoaded() then repeat task.wait() until game:IsLoaded() end
+
+local S = game.GetService
+local W, L, T = workspace, S(game, "Lighting"), workspace.Terrain
+
+T.WaterWaveSize,T.WaterWaveSpeed,T.WaterReflectance,T.WaterTransparency = 0,0,0,1
+L.Technology                    = Enum.Technology.Compatibility
+L.GlobalShadows, L.Brightness   = false, 1
+L.FogEnd                        = 1e10
+L.Ambient, L.OutdoorAmbient     = Color3.fromRGB(128,128,128), Color3.fromRGB(128,128,128)
+
+task.delay(3,function()
+    for _,v in ipairs(L:GetChildren()) do
+        if v:IsA("PostEffect") or v:IsA("Sky") then v:Destroy() end
+    end
+    local sky = Instance.new("Sky") sky.CelestialBodiesShown = false sky.Parent = L
+    L.DescendantAdded:Connect(function(v) if v:IsA("PostEffect") or v:IsA("Sky") then v:Destroy() end end)
+end)
+
+settings().Rendering.QualityLevel = Enum.QualityLevel.Level02
+if setfpscap then setfpscap(60) end
+if sethiddenproperty then
+    W.StreamingEnabled = true
+    sethiddenproperty(W, "StreamingTargetRadius", 64)
+end
+
+local function O(o)
+    pcall(function()
+        if o:IsA("BasePart") then
+            if o.Material~=Enum.Material.Neon and o.Material~=Enum.Material.ForceField then
+                o.Material = Enum.Material.Plastic
+            end
+            o.Reflectance, o.CastShadow = 0, false
+            if o:IsA("MeshPart") then o.TextureID = "" end
+            o.FrontSurface,o.BackSurface,o.TopSurface,o.BottomSurface,o.LeftSurface,o.RightSurface =
+                Enum.SurfaceType.Smooth,Enum.SurfaceType.Smooth,Enum.SurfaceType.Smooth,
+                Enum.SurfaceType.Smooth,Enum.SurfaceType.Smooth,Enum.SurfaceType.Smooth
+        elseif o:IsA("Decal") or o:IsA("Texture") then
+            o.Transparency = 1
+        elseif o:IsA("ParticleEmitter") or o:IsA("Trail") or o:IsA("Smoke")
+            or o:IsA("Fire") or o:IsA("Sparkles") then
+            o.Enabled = false
+        elseif o:IsA("PointLight") or o:IsA("SpotLight") or o:IsA("SurfaceLight") then
+            o.Enabled = false
+        elseif o:IsA("ShirtGraphic") then
+            o.Graphic = ""
+        elseif o:IsA("SpecialMesh") then
+            o.TextureId = ""
+        elseif o:IsA("FaceControls") or o:IsA("FaceAnimator") then
+            o:Destroy()
+        end
+    end)
+end
+
+local list = W:GetDescendants()
+for i = 1, #list do
+    O(list[i])
+    if i%1500==0 then task.wait() end
+end
+W.DescendantAdded:Connect(function(v) task.defer(O,v) end)
+
+local function F(n,v) pcall(setfflag,n,tostring(v)) end
+
+F("FFlagGraphicsPreferGPU","True")
+F("FFlagEnableGPUOcclusion","True")
+F("FFlagGraphicsReuseCFrames","True")
+F("FFlagDisablePostFx","True")
+F("FFlagRenderWater","False")
+F("FFlagRenderClouds","False")
+F("FFlagDebugSkyGray","True")
+F("FIntDebugForceMSAASamples","0")
+F("FIntRenderShadowIntensity","0")
+F("FIntFRMMinGrassDistance","0")
+F("FIntFRMMaxGrassDistance","0")
+F("FIntRenderGrassDetailStrands","0")
+F("FIntRenderGrassHeightScaler","0")
+F("DFFlagTextureQualityOverrideEnabled","True")
+F("DFIntTextureQualityOverride","0")
+F("DFIntTextureCompositorActiveJobs","0")
+F("FFlagOptimizeNetwork","True")
+F("FFlagOptimizeServerTickRate","True")
+F("DFIntConnectionMTUSize","900")
+F("DFIntCodecMaxIncomingPackets","100")
+F("DFIntCodecMaxOutgoingFrames","1000")
+F("DFIntRenderingThrottleDelayInMS","1")
+F("DFIntServerPhysicsUpdateRate","60")
+F("DFIntServerTickRate","20")
+F("DFFlagGpuVsCpuBoundTelemetry","False")
+F("DFFlagDebugRenderForceTechnologyVoxel","True")
+F("DFFlagDebugPauseVoxelizer","True")
+F("DFIntDebugFRMQualityLevelOverride","1")
+F("DFIntCSGLevelOfDetailSwitchingDistance","0")
+F("DFIntCSGLevelOfDetailSwitchingDistanceL12","0")
+F("DFIntCSGLevelOfDetailSwitchingDistanceL23","0")
+F("DFIntCSGLevelOfDetailSwitchingDistanceL34","0")
+F("FIntRenderLocalLightUpdatesMax","1")
+F("FIntRenderLocalLightUpdatesMin","1")
+F("FFlagRenderCheckThreading","True")
